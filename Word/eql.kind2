@@ -1,0 +1,5 @@
+Word.eql <size: Nat>         (a: Word size ) (b: Word size ) : Bool
+Word.eql  size                Word.e          Word.e         = Bool.true
+Word.eql (Nat.succ pred)     (Word.o preda)  (Word.o predb)  = Word.eql preda predb
+Word.eql (Nat.succ pred)     (Word.i preda)  (Word.i predb)  = Word.eql preda predb
+Word.eql  size                a               b              = Bool.false

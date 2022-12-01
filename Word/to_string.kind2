@@ -1,0 +1,4 @@
+Word.to_string <len: Nat>   (w: Word len) : String
+Word.to_string  len          Word.e       = "#"
+Word.to_string (Nat.succ n) (Word.o pred) = String.concat "0" (Word.to_string n pred) 
+Word.to_string (Nat.succ n) (Word.i pred) = String.concat "1" (Word.to_string n pred)

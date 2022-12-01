@@ -1,0 +1,7 @@
+List.in <a : Type> (cond: a -> Bool) (list: List a) : Bool {
+    let find = List.find (list) (cond)
+    match Maybe find {
+        none => Bool.false
+        some => Bool.true
+    }
+}

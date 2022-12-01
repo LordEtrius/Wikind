@@ -1,0 +1,10 @@
+Word.to_bits <size: Nat>  (a: Word(size)) : Bits
+Word.to_bits  size        (Word.e)        = Bits.e
+Word.to_bits (Nat.succ t) (Word.o pred)   = Bits.o (Word.to_bits t pred)
+Word.to_bits (Nat.succ t) (Word.i pred)   = Bits.i (Word.to_bits t pred)
+
+//   case a {
+//     e: Bits.e,
+//     o: Bits.o(Word.to_bits<a.size>(a.pred)),
+//     i: Bits.i(Word.to_bits<a.size>(a.pred)),
+//   }

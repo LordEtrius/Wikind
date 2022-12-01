@@ -1,0 +1,7 @@
+Word.show <size: Nat> (a: Word size) : String {
+    (Nat.show (Word.to_nat a)) ""
+}
+
+
+// Word.show(size: Nat, a: Word(size)): String
+//   Nat.show(Word.to_nat!(a)) // | "#" | Nat.show(size) -- why this "#" exists?

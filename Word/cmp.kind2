@@ -1,0 +1,10 @@
+Word.cmp <size: Nat> (a: Word size) (b: Word size): Cmp {
+  Word.cmp.go a b Cmp.eql
+}
+
+Word.cmp.go <size: Nat>  (a: Word size)  (b: Word size)      (c: Cmp): Cmp
+Word.cmp.go  Nat.zero     Word.e          Word.e              c      = c
+Word.cmp.go (Nat.succ n) (Word.o ta)     (Word.o tb)          c      = Word.cmp.go ta tb c
+Word.cmp.go (Nat.succ n) (Word.o ta)     (Word.i tb)          c      = Word.cmp.go ta tb (Cmp.ltn)
+Word.cmp.go (Nat.succ n) (Word.i ta)     (Word.o tb)          c      = Word.cmp.go ta tb (Cmp.gtn)
+Word.cmp.go (Nat.succ n) (Word.i ta)     (Word.i tb)          c      = Word.cmp.go ta tb c

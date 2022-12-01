@@ -1,0 +1,12 @@
+String.is_nat (xs: String) : Bool
+String.is_nat String.nil = Bool.false
+String.is_nat (String.cons head (String.nil)) = 
+    if (Char.is_digit head)
+        { Bool.true }
+       else
+        { Bool.false } 
+String.is_nat (String.cons head tail) = 
+    if (Char.is_digit head)
+        { String.is_nat tail }
+       else
+        { Bool.false } 

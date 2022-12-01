@@ -1,0 +1,8 @@
+Bits.split (n: Nat) (b: Bits) : Pair Bits Bits {
+    Bits.split.go b ((f: Bits) => f) n} 
+
+Bits.split.go (b: Bits) (f: Bits -> Bits) (n: Nat) : Pair Bits Bits
+Bits.split.go b f Nat.zero = Pair.new (f Bits.e) b
+Bits.split.go Bits.e f (Nat.succ n.pred) = Pair.new (f Bits.e) Bits.e
+Bits.split.go (Bits.o b.pred) f (Nat.succ n.pred) = Bits.split.go b.pred ((ff: Bits) => (f (Bits.o ff))) n.pred
+Bits.split.go (Bits.i b.pred) f (Nat.succ n.pred) = Bits.split.go b.pred ((ff: Bits) => (f (Bits.i ff))) n.pred

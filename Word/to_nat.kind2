@@ -1,0 +1,15 @@
+Word.to_nat <size: Nat>     (word: Word size) : Nat
+Word.to_nat  size            Word.e          = Nat.zero
+Word.to_nat (Nat.succ n)    (Word.i pred)    = Nat.succ (Nat.mul (Nat.succ (Nat.succ Nat.zero)) (Word.to_nat pred))
+Word.to_nat (Nat.succ n)    (Word.o pred)    = (Nat.mul (Nat.succ (Nat.succ Nat.zero)) (Word.to_nat pred))
+
+
+// Word.to_nat<size: Nat>(word: Word(size)): Nat
+//   case word {
+//     e:
+//       0
+//     i:
+//       Nat.succ(Nat.mul(2, Word.to_nat(word.size, word.pred)))
+//     o:
+//       Nat.mul(2, Word.to_nat(word.size, word.pred))
+//   }

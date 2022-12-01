@@ -1,0 +1,5 @@
+List.is_sorted <a: Type> (cmp: a -> a -> Bool) (as: List a) : Bool
+List.is_sorted  a         cmp                   List.nil                 = Bool.true //lista vazia
+List.is_sorted  a         cmp                  (List.cons head List.nil) = Bool.true //Lista com 1 elemento
+List.is_sorted  a         cmp                  (List.cons head (List.cons head.tail (tail))) = 
+    if (cmp (head) (head.tail)) { Bool.false } else { List.is_sorted a cmp (List.cons head.tail (tail)) }
